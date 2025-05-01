@@ -1,0 +1,50 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+/*
+    Start = 0
+    End = Size-1
+    ek for loop chalade for(start = 0; start < size; start++)
+    ek end ke liye for loop chalade for(end = start; end < size; end++)
+
+    ab start hai end hai subarray print karle
+    
+    
+    Kadane's ALGO:
+    1. intiuion kya h? sum of 2 numbers agar do postive so positive hoga
+    2. agar dono negative hoga to negative hoga
+    3. so take 0 when negative.
+    
+    approach:
+    curr sum = 0
+    max sum = 0 
+    loop through the array
+    when tera curr sum negative then reset to 0.
+
+    for(int i = 0; i < size; i++)
+    {
+        currSum += nums[i];
+        maxSum = max(maxSum, currSum);
+
+        if(currSum < 0)
+            currSum = 0;
+    }
+
+*/
+
+
+class Solution {
+    public:
+        int maxSubArray(vector<int>& nums) {
+            int maxSum = INT_MIN;
+            int currSum = 0;
+            for(int i = 0; i < nums.size(); i++)
+            {
+                currSum += nums[i];
+                maxSum = max(maxSum, currSum);
+                    if(currSum < 0)
+                        currSum = 0;
+            }
+        }
+    };
